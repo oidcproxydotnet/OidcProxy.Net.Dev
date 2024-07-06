@@ -1,0 +1,10 @@
+fullnameOverride: identityserver
+
+image:
+  repository: albertstarreveld/identityserver
+  tag: latest
+
+replicaCount: 1
+
+service:
+  port: 8080
