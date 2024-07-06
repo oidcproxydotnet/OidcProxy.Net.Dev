@@ -1,4 +1,4 @@
-![kuberise logo](docs/images/full-logo.svg)
+![kuberise logo](docs/images/kuberise.io-OidcProxy.Net.png)
 # kuberise.io
 
 kuberise.io is a free open source internal developer platform for Kubernetes environment. The goal is to provide tools and templates in Kubernetes environment by a fast and easy installation to help developers focus on the development of the business applications rather than installation and configuration of side tools and preparations of the environments and automation.
