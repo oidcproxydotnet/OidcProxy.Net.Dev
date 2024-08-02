@@ -1,7 +1,12 @@
-  # - name: grafana
-  #   namespace: monitoring
-  #   subdomain: grafana
-  #   serviceName: kube-prometheus-stack-grafana
-  #   port: 80
-  #   path: /
-  #   ingressClassName: nginx
+
+  # services:
+  # - name: grafana # (required)
+  #   subdomain: grafana # (default is name)
+  #   namespace: monitoring # (default is name)
+  #   annotations: # (optional)
+  #     nginx.ingress.kubernetes.io/rewrite-target: /
+  #   serviceName: kube-prometheus-stack-grafana # (default is name)
+  #   port: 3000 # (default is 80)
+  #   path: / # (default is /)
+  #   ingressClassName: nginx # (default is nginx)
+  #   secretName: grafana-tls # (default is "" so ingress-nginx will use the default certificate)
