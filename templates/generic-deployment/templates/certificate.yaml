@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: identityserver-certificate
+  namespace: identityserver
+spec:
+  secretName: identityserver-tls-secret
+  duration: 2400h
+  renewBefore: 100h
+  dnsNames:
+  - identityserver.identityserver.svc.cluster.local
+  issuerRef:
+    name: selfsigned-clusterissuer
+    kind: ClusterIssuer
