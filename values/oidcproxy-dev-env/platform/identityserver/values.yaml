@@ -9,11 +9,11 @@ replicaCount: 1
 service:
   port: 8080
 
-extraVolumes: |
+volumes: |
   - name: identityserver-tls-volume
     secret:
       secretName: identityserver-tls-secret
-extraVolumeMounts: |
+volumeMounts: |
   - name: identityserver-tls-volume
     mountPath: "/etc/x509/https"
     readOnly: true
