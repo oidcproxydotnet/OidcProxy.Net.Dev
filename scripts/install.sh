@@ -224,7 +224,7 @@ NAMESPACE_MONITORING="monitoring"
 NAMESPACE_CERTMANAGER="cert-manager"
 
 # Warning Message
-echo "WARNING: This script will install the platform '$PLATFORM_NAME' in the Kubernetes context '$CONTEXT'.
+echo "WARNING: This script will install the platform '$PLATFORM_NAME' in the Kubernetes context '$CONTEXT'."
 echo "Please confirm that you want to proceed by typing 'yes':"
 
 read confirmation
