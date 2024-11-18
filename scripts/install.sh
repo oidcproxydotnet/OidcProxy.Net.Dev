@@ -224,15 +224,7 @@ NAMESPACE_MONITORING="monitoring"
 NAMESPACE_CERTMANAGER="cert-manager"
 
 # Warning Message
-echo "WARNING: This script will install the platform '$PLATFORM_NAME' in the Kubernetes context '$CONTEXT'. The following namespaces and applications will be installed:"
-echo "- Namespace: $NAMESPACE_ARGOCD"
-echo "- Namespace: $NAMESPACE_CNPG"
-echo "- Namespace: $NAMESPACE_KEYCLOAK"
-echo "- Namespace: $NAMESPACE_BACKSTAGE"
-echo "- Namespace: $NAMESPACE_MONITORING"
-echo "- Namespace: $NAMESPACE_CERTMANAGER"
-echo "- Application: argocd-server"
-echo "- Application: app-of-apps-$PLATFORM_NAME"
+echo "WARNING: This script will install the platform '$PLATFORM_NAME' in the Kubernetes context '$CONTEXT'.
 echo "Please confirm that you want to proceed by typing 'yes':"
 
 read confirmation
