@@ -1,3 +1,4 @@
+# some of the values will be filled by install.sh script
 global:
   platformName: x
   domain: x
@@ -12,50 +13,59 @@ global:
       repoURL: x
       targetRevision: x
 
-applications:
+kustomize: # kustomize applications and also raw folders
 
   cnpg-database:
     enabled: false
     namespace: cloudnative-pg
 
   raw:
-    enabled: true
+    enabled: false
+
+  dashboards:
+    enabled: false
+    namespace: monitoring
 
 
-helmCharts:
+helm:
+
+  argocd-image-updater:
+    enabled: false
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 0.11.1
+    chart: argocd-image-updater
+    namespace: argocd
 
   keycloak:
     enabled: false
+    syncWave: 0
     path: templates/keycloak
-
-  keycloak-operator:
-    enabled: false
 
   ingress-nginx:
     enabled: false
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.10.1
+    targetRevision: 4.11.3
     chart: ingress-nginx
 
   kube-prometheus-stack:
     enabled: false
     repoURL: https://prometheus-community.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 56.7.0
+    targetRevision: 65.8.1
     chart: kube-prometheus-stack
 
   loki:
     enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 0.78.2
+    targetRevision: 0.79.4
     chart: loki-distributed
 
   promtail:
     enabled: false
     repoURL: https://grafana.github.io/helm-charts
     namespace: monitoring
-    targetRevision: 6.15.5
+    targetRevision: 6.16.6
     chart: promtail
 
   cert-manager:
@@ -75,17 +85,24 @@ helmCharts:
   ingresses:
     enabled: false
 
-  vault:
+  # Applications
+
+  show-env:
     enabled: false
-    repoURL: https://helm.releases.hashicorp.com
-    namespace: vault
-    targetRevision: 0.28.0
-    chart: vault
+    path: templates/generic-deployment
+    valuesFolder: applications
+
+  backend-https:
+    enabled: false
+    path: templates/generic-deployment
+    valuesFolder: applications
 
   identityserver:
     enabled: false
     path: templates/generic-deployment
+    valuesFolder: applications
 
   openiddictserver:
     enabled: false
     path: templates/generic-deployment
+    valuesFolder: applications
