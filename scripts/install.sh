@@ -243,6 +243,10 @@ fi
 
 check_required_tools
 
+# Install podmonitor and servicemonitor crd, then if prometheus is disabled, it will not prevent other charts to install.
+kubectl apply -f https://raw.githubusercontent.com/prometheus-community/helm-charts/refs/heads/main/charts/kube-prometheus-stack/charts/crds/crds/crd-servicemonitors.yaml
+kubectl apply -f https://raw.githubusercontent.com/prometheus-community/helm-charts/refs/heads/main/charts/kube-prometheus-stack/charts/crds/crds/crd-podmonitors.yaml
+
 
 # Create Namespaces
 create_namespace "$CONTEXT" "$NAMESPACE_ARGOCD"
