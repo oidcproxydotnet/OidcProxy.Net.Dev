@@ -47,7 +47,7 @@ helm:
   ingresses:
     enabled: true
 
-  # Microservice examples
+  # Applications
 
   show-env:
     enabled: false
@@ -59,3 +59,9 @@ helm:
   # an example of a service that receives traffic over HTTPS from ingress controller
   backend-https:
     enabled: false
+
+  identityserver:
+    enabled: true
+
+  openiddictserver:
+    enabled: true

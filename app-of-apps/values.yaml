@@ -85,7 +85,7 @@ helm:
   ingresses:
     enabled: false
 
-  # Microservice examples
+  # Applications
 
   show-env:
     enabled: false
@@ -93,6 +93,16 @@ helm:
     valuesFolder: applications
 
   backend-https:
+    enabled: false
+    path: templates/generic-deployment
+    valuesFolder: applications
+
+  identityserver:
+    enabled: false
+    path: templates/generic-deployment
+    valuesFolder: applications
+
+  openiddictserver:
     enabled: false
     path: templates/generic-deployment
     valuesFolder: applications
