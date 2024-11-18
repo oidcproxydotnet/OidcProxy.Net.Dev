@@ -1,0 +1,61 @@
+kustomize:
+  cnpg-database:
+    enabled: true
+    path: values/oidcproxy/platform/database/
+
+  raw:
+    enabled: false
+    path: values/oidcproxy/platform/raw
+
+  dashboards:
+    enabled: true
+
+helm:
+
+  argocd-image-updater:
+    enabled: false
+
+  keycloak:
+    enabled: true
+
+  ingress-nginx:
+    enabled: true
+    ignoreDifferences:
+      - group: ""
+        kind: Service
+        jqPathExpressions:
+          - .status.loadBalancer.ingress[].ipMode
+
+  kube-prometheus-stack:
+    enabled: false
+
+  loki:
+    enabled: false
+
+  promtail:
+    enabled: false
+
+  cloudnative-pg:
+    enabled: true
+
+  pgadmin:
+    enabled: false
+
+  cert-manager:
+    enabled: true
+
+  ingresses:
+    enabled: true
+
+  # Microservice examples
+
+  show-env:
+    enabled: false
+    annotations:
+      argocd-image-updater.argoproj.io/image-list: ghcr.io/kuberise/show-env:latest
+      argocd-image-updater.argoproj.io/update-strategy: digest
+      argocd-image-updater.argoproj.io/write-back-method: git
+
+  # an example of a service that receives traffic over HTTPS from ingress controller
+  backend-https:
+    enabled: false
